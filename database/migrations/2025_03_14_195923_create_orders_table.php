@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('customer_name'); // ФИО покупателя
-            $table->date('order_date'); // дата создания
+            $table->string('customer_name');
+            $table->date('order_date');
             $table->enum('status', ['новый', 'выполнен'])->default('новый');
             $table->text('customer_comment')->nullable();
             $table->unsignedBigInteger('product_id'); // связь с товаром

@@ -1,66 +1,95 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Ниже приведён пример текста для файла README.md, описывающего выполненную работу:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+---
 
-## About Laravel
+# Тестовое задание для PHP-разработчика
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Описание проекта
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Данный проект представляет собой веб-приложение, созданное с использованием фреймворка **Laravel 10** и **PHP 8**, с базой данных на **MySQL**. Проект включает функционал для управления товарами и заказами, а также имеет две отдельные части:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   **Публичная часть сайта:**
 
-## Learning Laravel
+    -   Просмотр списка товаров с краткой информацией (название, цена, категория).
+    -   Просмотр подробной информации о товаре с формой оформления заказа.
+    -   Просмотр списка заказов пользователя, где отображается информация о заказах.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-   **Админ-панель:**
+    -   Управление категориями товаров (создание, редактирование, удаление, просмотр).
+    -   Управление товарами магазина (создание, редактирование, удаление, просмотр).
+    -   Управление заказами (просмотр списка заказов, детальная информация о заказе, изменение статуса заказа, удаление заказов).
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Реализованный функционал
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Управление товарами и категориями:**
 
-## Laravel Sponsors
+    - Созданы миграции для таблиц `products` и `categories`.
+    - Реализованы CRUD-операции через контроллеры и веб-интерфейс (админ-панель).
+    - Настроены связи "один ко многим" между категориями и товарами.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+2. **Управление заказами:**
 
-### Premium Partners
+    - Создана миграция для таблицы `orders`, которая содержит поля для ФИО покупателя, даты заказа, статуса, комментария, количества и связи с товаром.
+    - Реализовано оформление заказа на публичной странице товара.
+    - Пользователь может просмотреть созданный заказ, а администратор — изменить статус заказа на «выполнен» через админ-панель.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+3. **Публичная часть:**
 
-## Contributing
+    - Главная страница магазина с выводом всех товаров.
+    - Страница с подробной информацией о товаре и формой оформления заказа.
+    - Страница для просмотра всех заказов пользователя.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. **Админ-панель:**
 
-## Code of Conduct
+    - Отдельный layout для админ-панели с боковым меню, включающим разделы: «Категории», «Товары», «Заказы».
+    - Возможность редактирования статуса заказов, просмотра детальной информации, а также управление категориями и товарами.
+    - Кнопка для перехода обратно на публичную часть сайта.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+5. **Сиды:**
+    - Реализован сидер для категорий, который заполняет таблицу `categories` начальными данными (легкий, хрупкий, тяжелый).
+    - Реализован сидер для товаров, который создаёт 10 тестовых товаров с использованием Faker.
 
-## Security Vulnerabilities
+## Используемые технологии
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+-   **Laravel 10** – MVC-фреймворк для создания веб-приложений.
+-   **PHP 8** – Язык программирования.
+-   **MySQL** – Система управления базами данных.
+-   **Bootstrap 5** – Фронтенд-фреймворк для быстрой верстки адаптивного интерфейса.
+-   **Bootstrap Icons** – Набор иконок для оформления интерфейса.
 
-## License
+## Как запустить проект
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. **Клонируйте репозиторий:**
+
+    ```bash
+    git clone git@github.com:Shahiahmed/test-project.git
+    ```
+
+2. **Установите зависимости:**
+
+    ```bash
+    cd test-project
+    composer install
+    ```
+
+3. **Настройте окружение:**
+
+    - Скопируйте `.env.example` в `.env`
+    - Настройте подключение к базе данных в файле `.env`
+
+4. **Запустите миграции и сидеры:**
+
+    ```bash
+    php artisan migrate --seed
+    ```
+
+5. **Запустите локальный сервер:**
+
+    ```bash
+    php artisan serve
+    ```
+
+6. **Откройте браузер и перейдите по адресу:**
+
+    - Публичная часть: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+    - Админ-панель: [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
